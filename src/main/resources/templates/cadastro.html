@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <h2 class="text-center mb-3">Cadastro de Produtos</h2>
+    <form th:object="${produtoNovo}" method="post" action="/cadastrar">
+        <div class="mb-3">
+            <input class="form-control" type="text" id="nome" name="nome" placeholder="Nome" th:field="*{nome}">
+        </div>
+
+        <div class="mb-3">
+            <input class="form-control" type="text" id="preco" name="preco" placeholder="Preço" th:field="*{preco}">
+        </div>
+
+        <div class="mb-3">
+            <select class="form-select" aria-label="Default select example" th:field="*{secao}">
+                <option selected value="">Selecione a seção</option>
+                <option value="Alimentos">Alimentos</option>
+                <option value="Higiene">Higiene</option>
+                <option value="HortiFruti">Horti-Fruti</option>
+                <option value="Cuidado Pessoal">Cuidado Pessoal</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <input class="form-control" type="text" id="estoque" name="estoque" placeholder="Estoque" th:field="*{estoque}">
+        </div>
+
+        <div class="d-flex justify-content-between mb-3">
+            <button type="submit" class="btn btn-success">Cadastrar</button>
+            <a href="/home" type="submit" class="btn btn-primary">Voltar</a>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
